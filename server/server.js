@@ -107,4 +107,4 @@ function emitGameOver(roomName, winner) {
 
 io.listen(process.env.PORT || 3000);
 
-console.log("Server is up and running!")
+console.log(`Server is up and running on port ${process.env.PORT || 3000}!`)
