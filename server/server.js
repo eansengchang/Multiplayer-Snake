@@ -29,9 +29,9 @@ io.on("connection", client => {
         if (allUsers) {
             numClients = Object.keys(allUsers).length
         }
-        if (!numClients || numClients == 0) {
-            console.log("no")
-            client.emit('unknownCode');
+
+        if (numClients === 0) {
+            client.emit('unknownGame');
             return
         } else if (numClients > 1) {
             client.emit('tooManyPlayers');
@@ -82,7 +82,7 @@ io.on("connection", client => {
     function startGameInterval(roomName) {
         const intervalId = setInterval(() => {
             const winner = gameLoop(state[roomName]);
-    
+
             if (!winner) {
                 //game sitll continues
                 emitGameState(roomName, state[roomName])
@@ -107,4 +107,4 @@ function emitGameOver(roomName, winner) {
 
 io.listen(process.env.PORT || 3000);
 
-console.log(`Server is up and running on port ${process.env.PORT || 3000}!`)
+console.log("Server is up and running!")

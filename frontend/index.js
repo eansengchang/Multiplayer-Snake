@@ -129,7 +129,6 @@ function handleGameCode(gameCode){
 }
 
 function handleUnknownGame(){
-    console.log("why")
     reset();
     alert("unknown game code!")
 }
