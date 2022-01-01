@@ -29,9 +29,9 @@ io.on("connection", client => {
         if (allUsers) {
             numClients = Object.keys(allUsers).length
         }
-
-        if (numClients === 0) {
-            client.emit('unknownGame');
+        if (!numClients || numClients == 0) {
+            console.log("no")
+            client.emit('unknownCode');
             return
         } else if (numClients > 1) {
             client.emit('tooManyPlayers');
