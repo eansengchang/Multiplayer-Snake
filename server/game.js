@@ -77,6 +77,9 @@ function gameLoop(state) {
             if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
                 return 2;
             }
+            if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
+                return 1;
+            }
         }
 
         playerOne.snake.push({ ...playerOne.pos });
@@ -103,6 +106,9 @@ function gameLoop(state) {
         for (let cell of playerTwo.snake) {
             if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
                 return 1;
+            }
+            if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
+                return 2;
             }
         }
 
